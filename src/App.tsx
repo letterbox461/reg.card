@@ -1,15 +1,21 @@
 import React from "react";
-import "./App.css";
-import ProductCounter from "./ProductCounter";
+import "./styles/App.css";
 
 const App = () => {
+  const a = " carrot";
+
   return (
-    <div className="App">
-      <ProductCounter product={{ productName: "Апельсин", count: 6 }} />
-      <ProductCounter product={{ productName: "Яблоко" }} />
-      <ProductCounter product={{ productName: "Ананас", count: 3 }} />
-      <ProductCounter product={{ productName: "Арбуз", count: 46 }} />
-      <ProductCounter product={{ productName: "Дыня" }} />
+    <div className="container">
+      <div className="card">
+        <div className={`picHolder + ${a}`}>
+          <button type="button">Купить</button>
+          <button type="button">Купить в кредит</button>
+        </div>
+        <div className="name">Carrot 100g</div>
+        <div className="price">
+          <b>$399</b>
+        </div>
+      </div>
     </div>
   );
 };
