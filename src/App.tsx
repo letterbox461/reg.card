@@ -1,7 +1,7 @@
 import React from "react";
 import ProdCard from "./components/ProdCard";
 import "./styles/App.css";
-import { ArrType } from "./types/types";
+import { ArrType } from "./types/index";
 
 const App = () => {
   const goods: ArrType[] = [
@@ -12,8 +12,8 @@ const App = () => {
 
   return (
     <div className="container">
-      {goods.map((e) => (
-        <ProdCard opt={e} />
+      {goods.map((element) => (
+        <ProdCard key={element.id} opt={element} />
       ))}
     </div>
   );

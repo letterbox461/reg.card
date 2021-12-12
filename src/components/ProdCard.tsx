@@ -1,20 +1,17 @@
 import React from "react";
 import MyButton from "./MyButton";
-
-import { GoodsType } from "../types/types";
+import { GoodsType } from "../types";
+import ProdInfo from "./ProdInfo";
 
 const ProdCard: React.FC<GoodsType> = ({ opt }) => {
-  const { id, name, price } = opt;
+  const { name, price } = opt;
   return (
-    <div id={id.toString()} className="card">
+    <div className="card">
       <div className={`picHolder ${name}`}>
         <MyButton label="Купить" />
         <MyButton label="Купить в кредит" />
       </div>
-      <div className="name">{`${name} 100g`}</div>
-      <div className="price">
-        <b>{`$${price}`}</b>
-      </div>
+      <ProdInfo name={name} price={price} />
     </div>
   );
 };

@@ -19,13 +19,6 @@
   justify-content: center;
 }
 
-img {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-around;
-}
-
 .picHolder {
   width: 100%;
   height: 60%;
