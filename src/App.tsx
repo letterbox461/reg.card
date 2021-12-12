@@ -1,21 +1,20 @@
 import React from "react";
+import ProdCard from "./components/ProdCard";
 import "./styles/App.css";
+import { ArrType } from "./types/types";
 
 const App = () => {
-  const a = " carrot";
+  const goods: ArrType[] = [
+    { id: 1, name: "carrot", price: 399 },
+    { id: 2, name: "potato", price: 299 },
+    { id: 3, name: "cucumber", price: 799 },
+  ];
 
   return (
     <div className="container">
-      <div className="card">
-        <div className={`picHolder + ${a}`}>
-          <button type="button">Купить</button>
-          <button type="button">Купить в кредит</button>
-        </div>
-        <div className="name">Carrot 100g</div>
-        <div className="price">
-          <b>$399</b>
-        </div>
-      </div>
+      {goods.map((e) => (
+        <ProdCard opt={e} />
+      ))}
     </div>
   );
 };
