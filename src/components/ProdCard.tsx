@@ -4,10 +4,10 @@ import { GoodsType } from "../types";
 import ProdInfo from "./ProdInfo";
 
 const ProdCard: React.FC<GoodsType> = ({ opt }) => {
-  const { name, price } = opt;
+  const { name, price, image } = opt;
   return (
     <div className="card">
-      <div className={`picHolder ${name}`}>
+      <div className="picHolder" style={{ backgroundImage: `url(${image})` }}>
         <MyButton label="Купить" />
         <MyButton label="Купить в кредит" />
       </div>

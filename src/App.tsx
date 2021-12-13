@@ -5,9 +5,24 @@ import { ArrType } from "./types/index";
 
 const App = () => {
   const goods: ArrType[] = [
-    { id: 1, name: "carrot", price: 399 },
-    { id: 2, name: "potato", price: 299 },
-    { id: 3, name: "cucumber", price: 799 },
+    {
+      id: 1,
+      name: "Carrot",
+      price: 399,
+      image: "./img/carrot.jpg",
+    },
+    {
+      id: 2,
+      name: "Potato",
+      price: 299,
+      image: "./img/potato.jpg",
+    },
+    {
+      id: 3,
+      name: "Cucumber",
+      price: 799,
+      image: "./img/cucumber.jpg",
+    },
   ];
 
   return (

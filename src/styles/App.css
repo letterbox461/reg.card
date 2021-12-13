@@ -27,15 +27,7 @@
   justify-content: space-around;
   align-items: center;
 }
-.carrot {
-  background-image: url("./img/carrot.jpg");
-}
-.potato {
-  background-image: url("./img/potato.jpg");
-}
-.cucumber {
-  background-image: url("./img/cucumber.jpg");
-}
+
 button {
   height: 30px;
   color: white;
