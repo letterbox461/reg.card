@@ -10,18 +10,21 @@ const App = () => {
       name: "Carrot",
       price: 399,
       image: "./img/carrot.jpg",
+      rating: 4,
     },
     {
       id: 2,
       name: "Potato",
       price: 299,
       image: "./img/potato.jpg",
+      rating: 3,
     },
     {
       id: 3,
       name: "Cucumber",
       price: 799,
       image: "./img/cucumber.jpg",
+      rating: 5,
     },
   ];
 
