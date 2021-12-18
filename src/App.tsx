@@ -1,7 +1,7 @@
 import React from "react";
 import ProdCard from "./components/ProdCard";
 import "./styles/App.css";
-import { ArrType } from "./types/index";
+import { ArrType } from "./types";
 
 const App = () => {
   const goods: ArrType[] = [
