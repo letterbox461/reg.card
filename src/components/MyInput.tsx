@@ -21,9 +21,7 @@ const MyInput: React.FC<InputType> = ({
         value={value}
         onChange={(ev) => setContent(ev)}
       />
-      <span style={{ opacity: value === "" ? "100%" : "0%" }}>
-        Field {placeHolder} shouldn`t be empty!
-      </span>
+      <span style={{ opacity: value === "" ? "100%" : "0%" }}>*</span>
     </div>
   );
 };

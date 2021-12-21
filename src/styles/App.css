@@ -61,6 +61,5 @@ input {
 
 span {
   color: red;
-  font-size: x-small;
-  font-weight: lighter;
+  font-size: small;
 }

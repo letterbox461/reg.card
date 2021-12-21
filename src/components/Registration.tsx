@@ -1,23 +1,27 @@
 import React, { useState, useEffect } from "react";
 import MyInput from "./MyInput";
 import "../styles/App.css";
+import UserInfoInterface from "../types";
 
 const Registration = () => {
-  const [name, setName] = useState<string>("");
-  const [surname, setSurname] = useState<string>("");
-  const [email, setemail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [repeatPassword, setRepeatPassword] = useState<string>("");
+  const [userInfo, setUserInfo] = useState<UserInfoInterface>({
+    name: "",
+    surname: "",
+    email: "",
+    password: "",
+    repeatPassword: "",
+  });
+
   const [buttonStatus, setButtonStatus] = useState<boolean>(false);
 
   useEffect(() => {
     if (
-      password === repeatPassword &&
-      password !== "" &&
-      name !== "" &&
-      surname !== "" &&
-      email !== "" &&
-      email.includes("@")
+      userInfo.password === userInfo.repeatPassword &&
+      userInfo.password !== "" &&
+      userInfo.name !== "" &&
+      userInfo.surname !== "" &&
+      userInfo.email !== "" &&
+      userInfo.email.includes("@")
     ) {
       setButtonStatus(true);
     } else {
@@ -27,19 +31,16 @@ const Registration = () => {
 
   const buttonHandler = (ev: React.MouseEvent<HTMLButtonElement>) => {
     ev.preventDefault();
-    const userInfo = {
-      name,
-      surname,
-      email,
-      password,
-    };
-    console.log(userInfo);
 
-    setName("");
-    setSurname("");
-    setPassword("");
-    setRepeatPassword("");
-    setemail("");
+    console.log(userInfo);
+    setUserInfo({
+      ...userInfo,
+      name: "",
+      surname: "",
+      email: "",
+      password: "",
+      repeatPassword: "",
+    });
   };
 
   return (
@@ -47,43 +48,43 @@ const Registration = () => {
       <form>
         <MyInput
           variant="text"
-          value={name}
+          value={userInfo.name}
           placeHolder="name"
           setContent={(ev: React.ChangeEvent<HTMLInputElement>) =>
-            setName(ev.target.value)
+            setUserInfo({ ...userInfo, name: ev.target.value })
           }
         />
         <MyInput
           variant="text"
-          value={surname}
+          value={userInfo.surname}
           placeHolder="surname"
           setContent={(ev: React.ChangeEvent<HTMLInputElement>) =>
-            setSurname(ev.target.value)
+            setUserInfo({ ...userInfo, surname: ev.target.value })
           }
         />
         <MyInput
           variant="email"
           placeHolder="email"
-          value={email}
+          value={userInfo.email}
           setContent={(ev: React.ChangeEvent<HTMLInputElement>) =>
-            setemail(ev.target.value)
+            setUserInfo({ ...userInfo, email: ev.target.value })
           }
         />
         <MyInput
           variant="password"
-          value={password}
+          value={userInfo.password}
           placeHolder="password"
           setContent={(ev: React.ChangeEvent<HTMLInputElement>) =>
-            setPassword(ev.target.value)
+            setUserInfo({ ...userInfo, password: ev.target.value })
           }
         />
 
         <MyInput
           variant="password"
-          value={repeatPassword}
+          value={userInfo.repeatPassword}
           placeHolder="repeat password"
           setContent={(ev: React.ChangeEvent<HTMLInputElement>) =>
-            setRepeatPassword(ev.target.value)
+            setUserInfo({ ...userInfo, repeatPassword: ev.target.value })
           }
         />
         <div>
@@ -97,7 +98,9 @@ const Registration = () => {
           </button>
           <span
             style={{
-              opacity: `${password !== repeatPassword ? "100" : "0"}`,
+              opacity: `${
+                userInfo.password !== userInfo.repeatPassword ? "100" : "0"
+              }`,
             }}>
             Passwords don`t match!!
           </span>
