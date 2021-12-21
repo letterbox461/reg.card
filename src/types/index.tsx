@@ -4,6 +4,7 @@ interface UserInfoInterface {
   email: string;
   password: string;
   repeatPassword: string;
+  [index: string]: string;
 }
 
 export default UserInfoInterface;

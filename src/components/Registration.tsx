@@ -46,47 +46,20 @@ const Registration = () => {
   return (
     <div className="container">
       <form>
-        <MyInput
-          variant="text"
-          value={userInfo.name}
-          placeHolder="name"
-          setContent={(ev: React.ChangeEvent<HTMLInputElement>) =>
-            setUserInfo({ ...userInfo, name: ev.target.value })
-          }
-        />
-        <MyInput
-          variant="text"
-          value={userInfo.surname}
-          placeHolder="surname"
-          setContent={(ev: React.ChangeEvent<HTMLInputElement>) =>
-            setUserInfo({ ...userInfo, surname: ev.target.value })
-          }
-        />
-        <MyInput
-          variant="email"
-          placeHolder="email"
-          value={userInfo.email}
-          setContent={(ev: React.ChangeEvent<HTMLInputElement>) =>
-            setUserInfo({ ...userInfo, email: ev.target.value })
-          }
-        />
-        <MyInput
-          variant="password"
-          value={userInfo.password}
-          placeHolder="password"
-          setContent={(ev: React.ChangeEvent<HTMLInputElement>) =>
-            setUserInfo({ ...userInfo, password: ev.target.value })
-          }
-        />
+        {Object.keys(userInfo).map((key) => {
+          return (
+            <MyInput
+              key={key}
+              variant="text"
+              value={userInfo[key]}
+              placeHolder={`${key}`}
+              setContent={(ev: React.ChangeEvent<HTMLInputElement>) =>
+                setUserInfo({ ...userInfo, [key]: ev.target.value })
+              }
+            />
+          );
+        })}
 
-        <MyInput
-          variant="password"
-          value={userInfo.repeatPassword}
-          placeHolder="repeat password"
-          setContent={(ev: React.ChangeEvent<HTMLInputElement>) =>
-            setUserInfo({ ...userInfo, repeatPassword: ev.target.value })
-          }
-        />
         <div>
           <button
             type="button"
